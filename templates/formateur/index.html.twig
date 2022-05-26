@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formateurs{% endblock %}
+
+{% block body %}
+    <h1>Liste des formateurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formateur in formateurs %}
+            <tr>
+                <td>{{ formateur.id }}</td>
+                <td>{{ formateur.nom }}</td>
+                <td>{{ formateur.prenom }}</td>
+                <td>{{ formateur.telephone }}</td>
+                <td>{{ formateur.email }}</td>
+                <td>
+                    <a href="{{ path('app_formateur_show', {'id': formateur.id}) }}">Details</a>
+                    <a href="{{ path('app_formateur_edit', {'id': formateur.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun resultats trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_formateur_new') }}">Creer un nouveau formateur</a>
+{% endblock %}

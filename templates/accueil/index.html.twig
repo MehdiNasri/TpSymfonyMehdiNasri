@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony TP{% endblock %}
+
+{% block body %}
+
+
+<div class="contentAccueil">
+<div class="accueilFormation">
+    <h1>Nombre de formations : <span class="nb"> {{ CountFormation }} </span></h1>
+    <a href="{{ path('app_formation_index') }}">Voir la liste des formations</a>
+    <p><a href="{{ path('app_formation_new') }}">Créer une nouvel formation</a></p>
+</div>
+<div class="accueilOrganisme">
+    <h1>Nombre d'organisme : <span class="nb"> {{ CountOrganisme }} </span></h1>
+    <a href="{{ path('app_organisme_index') }}">Voir la liste des organismes</a>
+    <p><a href="{{ path('app_organisme_new') }}">Créer un nouvel organisme</a></p>
+</div>
+</div>
+{% endblock %}
